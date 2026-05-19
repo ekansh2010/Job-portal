@@ -1,0 +1,131 @@
+/* =============================================
+   style.css - Global Styles for Job Portal
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #64748b;
+  --accent: #f59e0b;
+  --light-bg: #f1f5f9;
+  --white: #ffffff;
+  --dark: #1e293b;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.navbar-brand { font-size: 1.5rem; font-weight: 700; color: var(--primary) !important; letter-spacing: -0.5px; }
+.navbar-brand span { color: var(--accent); }
+.nav-link { font-weight: 500; color: var(--dark) !important; transition: color 0.2s; margin: 0 4px; }
+.nav-link:hover { color: var(--primary) !important; }
+.btn-nav-login { border: 2px solid var(--primary); color: var(--primary) !important; border-radius: 8px; padding: 6px 18px; transition: all 0.2s; }
+.btn-nav-login:hover { background: var(--primary); color: var(--white) !important; }
+.btn-nav-register { background: var(--primary); color: var(--white) !important; border-radius: 8px; padding: 6px 18px; transition: all 0.2s; }
+.btn-nav-register:hover { background: var(--primary-dark); }
+
+/* Hero */
+.hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+  color: var(--white);
+  padding: 90px 0 70px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.hero-section h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+.hero-section h1 span { color: var(--accent); }
+.hero-section p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 30px; }
+.hero-stats { display: flex; gap: 32px; margin-top: 40px; }
+.hero-stats .stat h3 { font-size: 2rem; font-weight: 700; color: var(--accent); }
+.hero-stats .stat p { font-size: 0.9rem; margin: 0; opacity: 0.8; }
+
+/* Search */
+.search-box { background: var(--white); border-radius: 14px; padding: 10px 10px 10px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin-top: 30px; }
+.search-box input { border: none; outline: none; flex: 1; font-size: 1rem; font-family: 'Poppins', sans-serif; color: var(--dark); }
+.search-box select { border: none; outline: none; font-family: 'Poppins', sans-serif; color: var(--secondary); padding: 4px 8px; border-left: 1px solid var(--border); }
+.search-box button { background: var(--primary); color: var(--white); border: none; border-radius: 10px; padding: 10px 24px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: background 0.2s; }
+.search-box button:hover { background: var(--primary-dark); }
+
+/* Section */
+.section-title { font-size: 1.8rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.section-subtitle { color: var(--secondary); margin-bottom: 36px; }
+.section-padding { padding: 64px 0; }
+
+/* Job Cards */
+.job-card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--card-shadow); border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; height: 100%; }
+.job-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.job-card .company-logo { width: 52px; height: 52px; border-radius: 10px; background: var(--light-bg); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 14px; }
+.job-card .job-title { font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.job-card .company-name { font-size: 0.88rem; color: var(--secondary); margin-bottom: 12px; }
+.badge-type { font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; font-weight: 500; display: inline-block; margin-bottom: 12px; }
+.badge-fulltime { background: #dbeafe; color: #1d4ed8; }
+.badge-parttime { background: #fef3c7; color: #b45309; }
+.badge-remote { background: #dcfce7; color: #15803d; }
+.badge-internship { background: #fce7f3; color: #9d174d; }
+.job-card .job-location { font-size: 0.85rem; color: var(--secondary); }
+.job-card .job-salary { font-size: 0.95rem; font-weight: 600; color: var(--primary); margin-top: 10px; }
+.job-card .apply-btn { display: block; width: 100%; margin-top: 16px; background: var(--primary); color: var(--white); border: none; border-radius: 8px; padding: 9px 0; font-weight: 500; font-family: 'Poppins', sans-serif; text-align: center; text-decoration: none; transition: background 0.2s; }
+.job-card .apply-btn:hover { background: var(--primary-dark); color: var(--white); }
+
+/* Category */
+.category-card { background: var(--white); border-radius: var(--radius); padding: 24px 20px; text-align: center; border: 1px solid var(--border); box-shadow: var(--card-shadow); transition: all 0.2s; cursor: pointer; }
+.category-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.category-card .icon { font-size: 2rem; margin-bottom: 10px; }
+.category-card h6 { font-weight: 600; margin-bottom: 4px; }
+.category-card small { color: var(--secondary); font-size: 0.8rem; }
+
+/* Forms */
+.form-card { background: var(--white); border-radius: 16px; padding: 40px; box-shadow: var(--card-shadow); border: 1px solid var(--border); max-width: 480px; margin: 60px auto; }
+.form-card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.form-card p.sub { color: var(--secondary); font-size: 0.9rem; margin-bottom: 28px; }
+.form-label { font-weight: 500; font-size: 0.9rem; margin-bottom: 6px; }
+.form-control, .form-select { border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 14px; font-family: 'Poppins', sans-serif; font-size: 0.9rem; transition: border 0.2s; }
+.form-control:focus, .form-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+.btn-primary-custom { background: var(--primary); color: var(--white); border: none; border-radius: 8px; padding: 11px; font-weight: 600; font-size: 0.95rem; font-family: 'Poppins', sans-serif; width: 100%; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+.btn-primary-custom:hover { background: var(--primary-dark); }
+.alert-custom { border-radius: 8px; padding: 12px 16px; font-size: 0.9rem; }
+
+/* Footer */
+.footer { background: var(--dark); color: #94a3b8; padding: 50px 0 24px; margin-top: 70px; }
+.footer h5 { color: var(--white); font-weight: 600; margin-bottom: 16px; }
+.footer a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.9rem; transition: color 0.2s; }
+.footer a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid #334155; padding-top: 20px; margin-top: 36px; font-size: 0.85rem; text-align: center; }
+
+/* Filter sidebar */
+.filter-card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--card-shadow); border: 1px solid var(--border); position: sticky; top: 80px; }
+.filter-card h5 { font-weight: 600; margin-bottom: 20px; }
+.filter-card .filter-group { margin-bottom: 20px; }
+.filter-card .filter-group label { font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 8px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section h1 { font-size: 1.9rem; }
+  .search-box { flex-direction: column; align-items: stretch; }
+  .hero-stats { gap: 20px; }
+  .form-card { padding: 28px 20px; margin: 30px 16px; }
+}

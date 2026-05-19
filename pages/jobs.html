@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Jobs – JobPortal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Job<span>Portal</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center" id="nav-actions">
+          <li class="nav-item"><a class="nav-link active" href="jobs.html">Browse Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="post-job.html">Post a Job</a></li>
+          <li class="nav-item"><a class="nav-link btn-nav-login ms-2" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn-nav-register ms-2" href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div style="background:linear-gradient(135deg,#1e3a8a,#2563eb);padding:36px 0;color:#fff;">
+    <div class="container">
+      <h1 style="font-size:1.8rem;font-weight:700;margin-bottom:6px;">Browse All Jobs</h1>
+      <p style="opacity:0.8;margin:0;">Find the perfect job that matches your skills and goals</p>
+    </div>
+  </div>
+
+  <div class="container section-padding">
+    <div class="row">
+
+      <!-- Sidebar Filters -->
+      <div class="col-lg-3 mb-4">
+        <div class="filter-card">
+          <h5>🔧 Filters</h5>
+
+          <div class="filter-group">
+            <label>Search</label>
+            <input type="text" class="form-control" id="searchInput" placeholder="Job title or company..."/>
+          </div>
+
+          <div class="filter-group">
+            <label>Location</label>
+            <input type="text" class="form-control" id="filterLocation" placeholder="e.g. Bangalore"/>
+          </div>
+
+          <div class="filter-group">
+            <label>Job Type</label>
+            <select class="form-select" id="filterType">
+              <option value="">All Types</option>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Remote</option>
+              <option>Internship</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Category</label>
+            <select class="form-select" id="filterCategory">
+              <option value="">All Categories</option>
+              <option>Technology</option>
+              <option>Design</option>
+              <option>Marketing</option>
+              <option>Data Science</option>
+              <option>Finance</option>
+              <option>Business</option>
+            </select>
+          </div>
+
+          <button id="clearFilters" class="btn btn-outline-secondary w-100" style="border-radius:8px;font-family:Poppins,sans-serif;font-size:0.88rem;">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Jobs Listing -->
+      <div class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span id="jobCount" style="font-weight:600;color:var(--dark);"></span>
+          <select id="sortBy" class="form-select" style="width:auto;border-radius:8px;font-family:Poppins,sans-serif;font-size:0.88rem;">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+        <div class="row" id="jobsContainer">
+          <div class="col-12 text-center py-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-2 text-muted">Loading jobs...</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2025 JobPortal. Minor Project – Web Development</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/jobs.js"></script>
+  <script>
+    // Check for URL params from homepage search/category
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('search')) document.getElementById('searchInput').value = params.get('search');
+      if (params.get('location')) document.getElementById('filterLocation').value = params.get('location');
+      if (params.get('category')) document.getElementById('filterCategory').value = params.get('category');
+    });
+  </script>
+</body>
+</html>
